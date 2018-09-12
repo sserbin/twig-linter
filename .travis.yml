@@ -1,0 +1,23 @@
+language: php
+dist: trusty
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+php:
+  - 7.1
+  - 7.2
+
+matrix:
+  fast_finish: true
+
+install:
+  - composer install --no-interaction --no-progress --prefer-dist --ansi
+
+script:
+  - composer cs-check
+  - composer static-analysis
+  - composer test
