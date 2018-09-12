@@ -15,4 +15,4 @@ By default `*.twig` files are searched. Pass in `--ext=?` (e.g. `--ext=html`) to
 # Limitations/known issues
 Any non-standard twig's functions/filters/tests are ignored during linting. I.e. if there's invocations of undefined filter this will *not* be reported by linter as it doesn't know about your specific twig environment.
 
-If however you want to, you can manually add `LintCommand` to your console application giving it *your* environment.
+If, however, you want it to, you can manually add `LintCommand` to your console application's command set instantiating it with *your* environment.
