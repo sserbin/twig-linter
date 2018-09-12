@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/sserbin/twig-linter.svg?branch=master)](https://travis-ci.com/sserbin/twig-linter)
+
 # Intro
 Standalone cli twig linter (heavily based on twig lint command from symfony-bridge), for those who don't use Symfony (if you do, you are better of using Symfony native `lint:twig`)
 
