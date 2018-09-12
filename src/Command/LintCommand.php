@@ -250,13 +250,15 @@ EOF
         $line = $exception->getTemplateLine();
 
         if ($file) {
-            //fixme
+            /** @psalm-suppress UndefinedMethod */
             $output->text(sprintf('<error> ERROR </error> in %s (line %s)', $file, $line));
         } else {
+            /** @psalm-suppress UndefinedMethod */
             $output->text(sprintf('<error> ERROR </error> (line %s)', $line));
         }
 
         foreach ($this->getContext($template, $line) as $lineNumber => $code) {
+            /** @psalm-suppress UndefinedMethod */
             $output->text(sprintf(
                 '%s %-6s %s',
                 $lineNumber === $line ? '<error> >> </error>' : '    ',
@@ -264,6 +266,7 @@ EOF
                 $code
             ));
             if ($lineNumber === $line) {
+                /** @psalm-suppress UndefinedMethod */
                 $output->text(sprintf('<error> >> %s</error> ', $exception->getRawMessage()));
             }
         }
