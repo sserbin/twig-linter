@@ -15,7 +15,9 @@ class StubEnvironment extends Environment
      */
     public function getFilter($name)
     {
-        return new TwigFilter((string)$name, $this->noop());
+        return new TwigFilter((string)$name, $this->noop(), [
+            'is_variadic' => true,
+        ]);
     }
 
     /**
@@ -23,7 +25,9 @@ class StubEnvironment extends Environment
      */
     public function getFunction($name)
     {
-        return new TwigFunction((string)$name, $this->noop());
+        return new TwigFunction((string)$name, $this->noop(), [
+            'is_variadic' => true,
+        ]);
     }
 
     /**
@@ -31,12 +35,17 @@ class StubEnvironment extends Environment
      */
     public function getTest($name)
     {
-        return new TwigTest((string)$name, $this->noop());
+        return new TwigTest((string)$name, $this->noop(), [
+            'is_variadic' => true,
+        ]);
     }
 
     private function noop(): callable
     {
-        return function (): void {
+        /**
+         * @param mixed $_
+         */
+        return function ($_, array $arg = []): void {
         };
     }
 }
