@@ -174,7 +174,9 @@ EOF
         SymfonyStyle $io,
         array $files
     ): int {
-        switch ($input->getOption('format')) {
+        $format = $input->getOption('format');
+        assert(is_string($format));
+        switch ($format) {
             case 'txt':
                 return $this->displayTxt($output, $io, $files);
             case 'json':
@@ -182,7 +184,7 @@ EOF
             default:
                 throw new InvalidArgumentException(sprintf(
                     'The format "%s" is not supported.',
-                    $input->getOption('format')
+                    $format
                 ));
         }
     }
