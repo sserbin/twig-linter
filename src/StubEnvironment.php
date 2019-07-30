@@ -20,7 +20,7 @@ class StubEnvironment extends Environment
          * @psalm-suppress InternalMethod
          */
         $defaultFilters = array_keys(parent::getFilters());
-        $isDefault = isset($defaultFilters[$name]) || $this->listContainsSubstring($defaultFilters, $name);
+        $isDefault = isset($defaultFilters[$name]);
 
         if ($isDefault) { // don't attempt to stub twig's builtin filter
             /** @psalm-suppress InternalMethod */
@@ -42,7 +42,7 @@ class StubEnvironment extends Environment
          * @psalm-suppress InternalMethod
          */
         $defaultFunctions = array_keys(parent::getFunctions());
-        $isDefault = isset($defaultFunctions[$name]) || $this->listContainsSubstring($defaultFunctions, $name);
+        $isDefault = isset($defaultFunctions[$name]);
 
         if ($isDefault) { // don't attempt to stub twig's builtin function
             /** @psalm-suppress InternalMethod */
