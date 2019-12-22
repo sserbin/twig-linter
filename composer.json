@@ -16,7 +16,7 @@
         "psr-4": { "Sserbin\\TwigLinter\\Tests\\": "tests/"}
     },
     "require": {
-        "php": "~7.1",
+        "php": "~7.2",
         "symfony/console": "^4.1",
         "symfony/finder": "^4.1",
         "twig/twig": "3",
