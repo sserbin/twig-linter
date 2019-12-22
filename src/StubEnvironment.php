@@ -81,6 +81,7 @@ class StubEnvironment extends Environment
     {
         /**
          * @param mixed $_
+         * @param array $arg
          */
         return function ($_ = null, array $arg = []): void {
         };
