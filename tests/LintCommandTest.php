@@ -11,6 +11,7 @@
 namespace Sserbin\TwigLinter\Tests;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -34,7 +35,7 @@ class LintCommandTest extends TestCase
         );
 
         $this->assertEquals(0, $ret, 'Returns 0 in case of success');
-        $this->assertContains('OK in', trim($tester->getDisplay()));
+        $this->assertStringContainsString('OK in', trim($tester->getDisplay()));
     }
 
     public function testLintIncorrectFile(): void
@@ -48,11 +49,9 @@ class LintCommandTest extends TestCase
         $this->assertRegExp('/ERROR  in \S+ \(line /', trim($tester->getDisplay()));
     }
 
-    /**
-     * @expectedException \RuntimeException
-     */
     public function testLintFileNotReadable(): void
     {
+        $this->expectException(RuntimeException::class);
         $tester = $this->createCommandTester();
         $filename = $this->createFile('');
         unlink($filename);
