@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sserbin\TwigLinter;
@@ -87,6 +88,7 @@ class StubEnvironment extends Environment
 
     /**
      * @param string[] $list
+     * @return bool
      */
     private function listContainsSubstring(array $list, string $needle): bool
     {

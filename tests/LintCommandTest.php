@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Symfony package.
  *
@@ -10,14 +11,11 @@
 namespace Sserbin\TwigLinter\Tests;
 
 use PHPUnit\Framework\TestCase;
-
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Tester\CommandTester;
-
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-
 use Sserbin\TwigLinter\Command\LintCommand;
 
 class LintCommandTest extends TestCase
