@@ -13,7 +13,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getFilter($name)
+    public function getFilter(string $name): ?TwigFilter
     {
         /**
          * @var string[]
@@ -35,7 +35,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getFunction($name)
+    public function getFunction(string $name): ?TwigFunction
     {
         /**
          * @var string[]
@@ -57,7 +57,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getTest($name)
+    public function getTest(string $name): ?TwigTest
     {
         /**
          * @var string[]
