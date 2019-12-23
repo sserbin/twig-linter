@@ -14,7 +14,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getFilter(string $name): ?TwigFilter
+    public function getFilter($name): ?TwigFilter
     {
         /**
          * @var string[]
@@ -36,7 +36,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getFunction(string $name): ?TwigFunction
+    public function getFunction($name): ?TwigFunction
     {
         /**
          * @var string[]
@@ -58,7 +58,7 @@ class StubEnvironment extends Environment
     /**
      * {@inheritdoc}
      */
-    public function getTest(string $name): ?TwigTest
+    public function getTest($name): ?TwigTest
     {
         /**
          * @var string[]
@@ -69,7 +69,16 @@ class StubEnvironment extends Environment
 
         if ($isDefault) { // don't attempt to stub twig's builtin test
             /** @psalm-suppress InternalMethod */
-            return parent::getTest($name);
+            $parentTest = parent::getTest($name);
+
+            if ($parentTest instanceof TwigTest) {
+                return $parentTest;
+            }
+
+            // In twig 2.x this can return `false`.
+            // Lets just force it here as null because
+            // of the added typehint for Twig 3.x
+            return null;
         }
 
         return new TwigTest((string)$name, $this->noop(), [
