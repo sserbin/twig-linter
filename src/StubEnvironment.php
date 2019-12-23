@@ -12,7 +12,8 @@ use Twig\TwigTest;
 class StubEnvironment extends Environment
 {
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @psalm-suppress ImplementedReturnTypeMismatch
      */
     public function getFilter($name): ?TwigFilter
     {
@@ -25,7 +26,7 @@ class StubEnvironment extends Environment
 
         if ($isDefault) { // don't attempt to stub twig's builtin filter
             /** @psalm-suppress InternalMethod */
-            return parent::getFilter($name);
+            return parent::getFilter($name) ?: null;
         }
 
         return new TwigFilter((string)$name, $this->noop(), [
@@ -34,7 +35,8 @@ class StubEnvironment extends Environment
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @psalm-suppress ImplementedReturnTypeMismatch
      */
     public function getFunction($name): ?TwigFunction
     {
@@ -47,7 +49,7 @@ class StubEnvironment extends Environment
 
         if ($isDefault) { // don't attempt to stub twig's builtin function
             /** @psalm-suppress InternalMethod */
-            return parent::getFunction($name);
+            return parent::getFunction($name) ?: null;
         }
 
         return new TwigFunction((string)$name, $this->noop(), [
@@ -56,7 +58,8 @@ class StubEnvironment extends Environment
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @psalm-suppress ImplementedReturnTypeMismatch
      */
     public function getTest($name): ?TwigTest
     {
