@@ -17,8 +17,8 @@
     },
     "require": {
         "php": "~7.2",
-        "symfony/console": "^4.1",
-        "symfony/finder": "^4.1",
+        "symfony/console": "^4.1 || ^5.1",
+        "symfony/finder": "^4.1 || ^5.1",
         "twig/twig": "^2.5 || ^3",
         "ocramius/package-versions": "^1.3"
     },
