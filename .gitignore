@@ -1,5 +1,4 @@
 /vendor/
-composer.lock
 .phpunit.result.cache
 
 # Created by https://www.gitignore.io/api/vim
