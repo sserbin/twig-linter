@@ -94,6 +94,7 @@ class StubEnvironment extends Environment
         /**
          * @param mixed $_
          * @param array $arg
+         * @psalm-suppress UnusedClosureParam
          */
         return function ($_ = null, array $arg = []): void {
         };

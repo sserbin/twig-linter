@@ -39,6 +39,7 @@
 
         <DocblockTypeContradiction errorLevel="info" />
         <RedundantConditionGivenDocblockType errorLevel="info" />
+        <RedundantCastGivenDocblockType errorLevel="info" />
 
         <UnresolvableInclude errorLevel="info" />
 
