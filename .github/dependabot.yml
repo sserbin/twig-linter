@@ -1,10 +1,4 @@
 version: 2
-registries:
-  git-github-com:
-    type: git
-    url: https://github.com
-    username: x-access-token
-    password: "${{secrets.GIT_GITHUB_COM_PASSWORD}}"
 
 updates:
 - package-ecosystem: composer
@@ -19,5 +13,3 @@ updates:
     - 4.4.0
     - 4.5.0
     - 4.6.0
-  registries:
-  - git-github-com
