@@ -35,7 +35,7 @@ use Twig\Source;
  */
 class LintCommand extends Command
 {
-    /** @var string */
+    /** @var ?string */
     protected static $defaultName = 'lint';
 
     /** @var Environment */
@@ -143,9 +143,9 @@ EOF
     {
         $realLoader = $this->twig->getLoader();
         try {
-            $temporaryLoader = new ArrayLoader(array((string) $file => $template));
+            $temporaryLoader = new ArrayLoader(array($file => $template));
             $this->twig->setLoader($temporaryLoader);
-            $nodeTree = $this->twig->parse($this->twig->tokenize(new Source($template, (string) $file)));
+            $nodeTree = $this->twig->parse($this->twig->tokenize(new Source($template, $file)));
             $this->twig->compile($nodeTree);
             $this->twig->setLoader($realLoader);
         } catch (Error $e) {
