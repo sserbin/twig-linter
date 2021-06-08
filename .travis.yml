@@ -1,5 +1,5 @@
 language: php
-dist: trusty
+dist: bionic
 sudo: false
 
 cache:
@@ -11,6 +11,7 @@ php:
   - 7.2 # EOL: 20 Nov 2020
   - 7.3 # EOL: 6 Dec 2021
   - 7.4 # EOL: 28 Nov 2022
+  - 8.0 # EOL: 26 Nov 2023
 
 matrix:
   fast_finish: true
