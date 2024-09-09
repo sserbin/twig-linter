@@ -41,15 +41,12 @@ class StubEnvironment extends Environment
     public function getFunction($name): ?TwigFunction
     {
         /**
-         * @var string[]
          * @psalm-suppress InternalMethod
          */
-        $defaultFunctions = array_keys(parent::getFunctions());
-        $isDefault = isset($defaultFunctions[$name]);
+        $defaultFunction = parent::getFunction($name);
 
-        if ($isDefault) { // don't attempt to stub twig's builtin function
-            /** @psalm-suppress InternalMethod */
-            return parent::getFunction($name) ?: null;
+        if ($defaultFunction) { // don't attempt to stub twig's builtin function
+            return $defaultFunction;
         }
 
         return new TwigFunction((string)$name, $this->noop(), [
