@@ -17,7 +17,7 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "symfony/console": "^5.4 || ^6.1",
+        "symfony/console": "^7.1.6",
         "symfony/finder": "^5.4 || ^6.1",
         "twig/twig": "^2.5 || ^3",
         "composer/package-versions-deprecated": "1.11.99.5"
