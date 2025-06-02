@@ -2,9 +2,9 @@
 <?php
 declare(strict_types=1);
 
+use Composer\InstalledVersions;
 use Symfony\Component\Console\Application;
 use Twig\Loader\ArrayLoader;
-use PackageVersions\Versions;
 
 use Sserbin\TwigLinter\StubEnvironment;
 use Sserbin\TwigLinter\Command\LintCommand;
@@ -25,7 +25,11 @@ $twig = new StubEnvironment(new ArrayLoader, []);
 
 $lintCommand = new LintCommand($twig);
 
-$app = new Application('twig-linter', (string) Versions::getVersion('sserbin/twig-linter'));
+$packageName = 'sserbin/twig-linter';
+$version = InstalledVersions::getPrettyVersion($packageName);
+$reference = InstalledVersions::getReference($packageName);
+
+$app = new Application('twig-linter', $version . '@' . $reference);
 $app->add($lintCommand);
 $app->setDefaultCommand('lint');
 $app->run();
