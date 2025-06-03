@@ -16,11 +16,11 @@
         "psr-4": { "Sserbin\\TwigLinter\\Tests\\": "tests/"}
     },
     "require": {
+        "composer-runtime-api": "^2.0",
         "php": "^7.4|^8.0",
         "symfony/console": "^5.4 || ^6.1",
         "symfony/finder": "^5.4 || ^6.1",
-        "twig/twig": "^2.5 || ^3",
-        "composer/package-versions-deprecated": "1.11.99.5"
+        "twig/twig": "^2.5 || ^3"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.3||^8.2|^9.5",
